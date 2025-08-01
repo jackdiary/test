@@ -1,0 +1,9 @@
+openai
+langchain
+langchain-openai
+langchain-community
+faiss-cpu
+python-dotenv
+streamlit
+googletrans
+requests
