@@ -1,0 +1,198 @@
+# 깃허브 완전 가이드 - 지식 베이스
+
+## 1. 깃허브 초기 설정 및 설치
+
+### 1.1 깃허브 가입 후 필수 설치 프로그램
+- **Git**: 버전 관리 시스템 핵심 도구
+  - Windows: https://git-scm.com/download/win 에서 다운로드
+  - Mac: `brew install git` 또는 Xcode Command Line Tools
+  - Linux: `sudo apt-get install git` (Ubuntu/Debian)
+
+### 1.2 초기 설정 필수 명령어
+git config --global user.name "당신의이름"
+git config --global user.email "이메일@example.com"
+git config --global init.defaultBranch main
+
+text
+
+### 1.3 SSH 키 설정 (보안 접속용)
+ssh-keygen -t ed25519 -C "이메일@example.com"
+cat ~/.ssh/id_ed25519.pub
+
+text
+생성된 공개키를 깃허브 Settings > SSH Keys에 등록
+
+## 2. 프로젝트 검색 및 발견
+
+### 2.1 깃허브 검색 기본 문법
+- `language:python`: 특정 언어로 검색
+- `stars:>100`: 스타 수가 100개 이상
+- `created:>2023-01-01`: 특정 날짜 이후 생성된 저장소
+- `topic:machine-learning`: 특정 토픽으로 검색
+
+### 2.2 프로그래밍 용어 번역 참고
+- 머신러닝 → machine learning
+- 딥러닝 → deep learning  
+- 웹개발 → web development
+- 데이터분석 → data analysis
+- 챗봇 → chatbot
+- 인공지능 → artificial intelligence
+
+## 3. 파일 업로드 및 관리 방법
+
+### 3.1 새 프로젝트 업로드 전체 과정
+git init
+git add .
+git commit -m "첫 번째 커밋"
+git branch -M main
+git remote add origin https://github.com/사용자명/저장소명.git
+git push -u origin main
+
+text
+
+### 3.2 개별 파일 업로드
+git add 파일명.txt
+git commit -m "파일명.txt 추가"
+git push
+
+text
+
+### 3.3 폴더 전체 업로드
+git add 폴더명/
+git commit -m "폴더명 추가"
+git push
+
+text
+
+### 3.4 .gitignore 파일 활용법
+
+#### Python 프로젝트용 .gitignore
+pycache/
+*.pyc
+*.pyo
+*.pyd
+.env
+venv/
+.venv/
+.pytest_cache/
+.coverage
+dist/
+build/
+*.egg-info/
+
+text
+
+#### Node.js 프로젝트용 .gitignore
+node_modules/
+npm-debug.log*
+.env
+dist/
+build/
+.DS_Store
+
+text
+
+#### 일반적인 .gitignore
+.env
+.env.local
+.DS_Store
+Thumbs.db
+*.log
+temp/
+tmp/
+
+text
+
+## 4. Git 브랜치 관리
+
+### 4.1 브랜치 생성 및 전환
+git branch 새브랜치명
+git checkout 새브랜치명
+
+또는
+git checkout -b 새브랜치명
+
+text
+
+### 4.2 브랜치 병합
+git checkout main
+git merge 새브랜치명
+git push
+
+text
+
+## 5. 협업 관련 명령어
+
+### 5.1 원격 저장소에서 가져오기
+git clone https://github.com/사용자명/저장소명.git
+git pull origin main
+
+text
+
+### 5.2 포크한 저장소 업데이트
+git remote add upstream https://github.com/원본사용자명/저장소명.git
+git fetch upstream
+git merge upstream/main
+
+text
+
+## 6. 자주 발생하는 문제 해결
+
+### 6.1 커밋 메시지 수정
+git commit --amend -m "새로운 커밋 메시지"
+
+text
+
+### 6.2 마지막 커밋 취소
+git reset --soft HEAD~1
+
+text
+
+### 6.3 파일 추가 취소
+git reset HEAD 파일명
+
+text
+
+### 6.4 변경사항 임시 저장
+git stash
+git stash pop
+
+text
+
+## 7. 깃허브 특화 기능
+
+### 7.1 README.md 작성법
+- 프로젝트 제목과 설명
+- 설치 방법
+- 사용 예시
+- 기여 방법
+- 라이선스
+
+### 7.2 Issues 활용
+- 버그 리포트
+- 기능 요청
+- 질문과 답변
+
+### 7.3 Pull Request 과정
+1. 포크 생성
+2. 브랜치 생성
+3. 코드 수정
+4. Pull Request 생성
+5. 코드 리뷰 및 병합
+
+## 8. 명령어 치트시트
+
+### 기본 명령어
+- `git status`: 현재 상태 확인
+- `git log`: 커밋 히스토리 보기
+- `git diff`: 변경사항 확인
+- `git add .`: 모든 변경사항 스테이징
+- `git commit -m "메시지"`: 커밋 생성
+- `git push`: 원격 저장소에 업로드
+- `git pull`: 원격 저장소에서 가져오기
+
+### 고급 명령어
+- `git rebase`: 커밋 히스토리 정리
+- `git cherry-pick`: 특정 커밋만 가져오기
+- `git bisect`: 버그 발생 지점 찾기
+- `git submodule`: 하위 모듈 관리
